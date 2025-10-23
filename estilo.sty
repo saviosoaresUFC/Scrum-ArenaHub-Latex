@@ -1,0 +1,208 @@
+%%%%%%%%%%%%%%%%%%%%%
+% 1. Codificação e idioma
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}       % Codificação correta para hifenização
+\usepackage[utf8]{inputenc}    % Permite acentos no código-fonte
+\usepackage[brazilian]{babel}  % Português do Brasil
+
+%%%%%%%%%%%%%%%%%%%%%
+% 2. Tipografia e fontes
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lmodern}           % Fonte Latin Modern
+\usepackage{times}             % Times New Roman
+\usepackage{microtype}         % Ajustes finos de tipografia
+\usepackage{setspace}          % Controle de espaçamento
+\usepackage{ragged2e}          % Justificação personalizada
+\usepackage{mfirstuc}          % Primeira letra maiúscula em títulos
+\usepackage[hang,flushmargin]{footmisc} % Notas de rodapé sem recuo
+
+%%%%%%%%%%%%%%%%%%%%%
+% 3. Matemática
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts,amsmath,amssymb}
+
+%%%%%%%%%%%%%%%%%%%%%
+% 4. Layout e margens
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage[inner=2.5cm, outer=2.5cm, top=3cm, bottom=2cm, headheight=40pt, headsep=18pt]{geometry}
+\usepackage{indentfirst}       % Indentação no primeiro parágrafo
+\usepackage{fancyhdr}          % Cabeçalhos e rodapés
+\usepackage{titlesec}          % Formatação de títulos
+\usepackage{changepage}        % Ajustes de largura de blocos
+\usepackage{ifoddpage}         % Condicional páginas pares/ímpares
+\usepackage{float}             % Controle de floats
+\usepackage{caption}           % Legendas customizadas
+
+%%%%%%%%%%%%%%%%%%%%%
+% 5. Figuras, tabelas e gráficos
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}          % Inclusão de imagens
+\usepackage{booktabs}          % Tabelas profissionais
+\usepackage{xcolor}            % Cores
+\usepackage{url,xurl}          % URLs
+\usepackage{nomencl}           % Lista de símbolos
+\usepackage{lipsum}            % Texto de exemplo
+% Redefine o ambiente de lipsum
+\let\oldlipsum\lipsum
+\renewcommand{\lipsum}[1][1]{\textcolor{gray!50}{\oldlipsum[#1]}}
+
+%%%%%%%%%%%%%%%%%%%%%
+% 6. Códigos e pseudocódigos e citações
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fvextra}           % Extensões para verbatim (necessário pro minted)
+%\usepackage{minted}            % Código com destaque de sintaxe
+\usepackage[portuguese,ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{csquotes}          % Aspas e citações multilíngues
+
+%%%%%%%%%%%%%%%%%%%%%
+% 7. Bibliografia
+%%%%%%%%%%%%%%%%%%%%%
+\usepackage[style=abnt, backend=biber, url=true, language=auto]{biblatex}
+\addbibresource{referencias.bib}
+\renewcommand{\mkbibnamefamily}[1]{#1}               % Para deixar o nome em minúsculo na citação
+\DeclareFieldFormat{url}{Disponível em \url{#1}}     % Remova os símbolos <> que encapsulam as URLs
+
+\let\oldprintbibliography\printbibliography
+\renewcommand{\printbibliography}[1][]{%
+    \qcentersection{referências}
+    \begingroup
+        \setlength{\bibitemsep}{0.8em}         % espaçamento entre entradas
+        \oldprintbibliography[heading=none]              % chama o comando original
+    \endgroup
+}
+
+%%%%%%%%%%%%%%%%%%%%%
+% 8. CONFIGURAÇÕES E COMANDOS LOCAIS
+%%%%%%%%%%%%%%%%%%%%%
+
+% ===============================================================
+% Espaçamento de floats como imagens e figuras
+% ===============================================================
+\setlength{\textfloatsep}{1.0cm}
+\setlength{\intextsep}{1.0cm}
+
+% ===============================================================
+% Configuração de página
+% ===============================================================
+\fancyhf{}
+\rhead{\thepage}
+\cfoot{}
+\renewcommand{\headrulewidth}{0pt}   % retirar linha do topo
+\pagestyle{fancy}                    % aplicar regras de cabeçalho
+
+\fancypagestyle{firstpage}{%
+    \rhead{\includegraphics[height=1.2cm]{figs/header.jpg}} 
+}
+
+% ===============================================================
+% Títulos
+% ===============================================================
+\titleformat{\section}
+  {\normalfont\fontsize{12}{12}\bfseries\MakeUppercase}
+  {\thesection}{0.5em}{}
+  
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{12}\bfseries}
+  {\thesubsection}{0.5em}{\capitalisewords}
+
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{12}{12}\bfseries\itshape}
+  {\thesubsubsection}{0.5em}{\capitalisewords}
+
+% ===============================================================
+% Redefinição de citação longa no estilo ABNT
+% ===============================================================
+\let\oldquote\quote
+\let\endoldquote\endquote
+\renewenvironment{quote}
+  {\par\vspace{0.3cm}\fontsize{10pt}{12pt}\selectfont\begin{adjustwidth}{4cm}{0pt}}
+  {\end{adjustwidth}\vspace{0.3cm}\par}
+
+% ===============================================================
+% Legendas de figuras, imagens e tabelas no topo
+% ===============================================================
+\DeclareCaptionFont{mycaptionfont}{\fontsize{10pt}{12pt}\selectfont}
+\DeclareCaptionLabelSeparator{myhyphen}{ --- }
+\captionsetup{font=mycaptionfont, labelsep=myhyphen}
+\floatname{listing}{Código}
+
+
+% ===============================================================
+% Criando comando authorinfo para emails de autores
+% ===============================================================
+
+\newcounter{authorfoot}
+\newcommand{\numtotext}[1]{%
+  \ifcase#1\relax
+    zero%
+  \or *% 1
+  \or **% 1
+  \or ***% 1
+  \or \textdagger% 2
+  \or \textdaggerdbl% 3
+  \or \textparagraph% 4
+  \or \S% 5
+  \or \textbardbl% 6
+  \or \# % 7
+  \or \textdagger\textdagger% 8
+  \or \textdaggerdbl\textdaggerdbl% 9
+  \or \textparagraph\textparagraph% 10
+  \else ???%
+  \fi
+}
+\newcommand{\authorinfo}[1]{%
+  \stepcounter{authorfoot}% incrementa contador
+  \begingroup
+    \renewcommand{\thefootnote}{\numtotext{\value{authorfoot}}}%
+    \footnote{#1}%
+  \endgroup
+}
+
+% ===============================================================
+% Sobrescrevendo comando maketitle para formatar Título e Autor
+% ===============================================================
+
+\makeatletter
+\renewcommand{\maketitle}{%
+    \thispagestyle{firstpage}
+    \singlespacing
+    \justifying
+    \setlength{\parindent}{2cm} % indentação do parágrafo
+    \vspace*{0.1cm}               % espaço vertical entre o topo e o título
+    \begin{center}
+    \textbf{\MakeUppercase{\@title}}
+    \end{center}
+    \begin{flushright}
+    \normalsize
+    \@author
+    \end{flushright}
+    \par
+}
+\makeatother
+
+% ===============================================================
+% Criando comando qcentersection para títulos de seção centralizada
+% ===============================================================
+
+\newcommand{\qcentersection}[1]{%
+    \vspace{0.1cm}
+    \begin{center}
+        \textbf{\MakeUppercase{#1}}
+    \end{center}
+    \vspace{0.1cm}
+}
+
+% ===============================================================
+% Criando comando qabstract para resumo e abstract
+% ===============================================================
+
+\newcommand{\qabstract}[6]{%
+    \begin{center}
+        \textbf{\MakeUppercase{#1}}
+    \end{center}
+    \noindent #4
+    
+    \vspace{0.5cm} % mantenha uma linha vazia antes dessa
+    \noindent \textbf{#2}: #5 \par
+    \noindent \textbf{#3}: #6 \par
+}

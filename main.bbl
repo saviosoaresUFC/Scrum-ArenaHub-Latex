@@ -1,0 +1,91 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{scrum-guia-projetos-ageis}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ed138d62af7ed82caeb9d4dc2e7b65a0}{%
+           family={Brod},
+           familyi={B\bibinitperiod},
+           given={César},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Novatec}%
+      }
+      \strng{namehash}{ed138d62af7ed82caeb9d4dc2e7b65a0}
+      \strng{fullhash}{ed138d62af7ed82caeb9d4dc2e7b65a0}
+      \strng{fullhashraw}{ed138d62af7ed82caeb9d4dc2e7b65a0}
+      \strng{bibnamehash}{ed138d62af7ed82caeb9d4dc2e7b65a0}
+      \strng{authorbibnamehash}{ed138d62af7ed82caeb9d4dc2e7b65a0}
+      \strng{authornamehash}{ed138d62af7ed82caeb9d4dc2e7b65a0}
+      \strng{authorfullhash}{ed138d62af7ed82caeb9d4dc2e7b65a0}
+      \strng{authorfullhashraw}{ed138d62af7ed82caeb9d4dc2e7b65a0}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Scrum: Guia Prático para Projetos Ágeis}
+      \field{year}{2015}
+    \endentry
+    \entry{SchwaberSutherland2020}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ee6f08fcba839e09471a0bc69152b6a5}{%
+           family={Schwaber},
+           familyi={S\bibinitperiod},
+           given={Ken},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6e3f26f6f816a26c6ab36bc7a899bcde}{%
+           family={Sutherland},
+           familyi={S\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Scrum.org e Scrum Inc.}%
+      }
+      \strng{namehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{fullhash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{fullhashraw}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{bibnamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authorbibnamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authornamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authorfullhash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authorfullhashraw}{303ea1dc92fd8c772eac56316b2074ef}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponível em: https://scrumguides.org/. Acesso em: 10/10/2025}
+      \field{title}{O Guia do Scrum: O Guia Definitivo para o Scrum: As Regras do Jogo}
+      \field{year}{2020}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
