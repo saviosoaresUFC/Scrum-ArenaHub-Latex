@@ -8,5 +8,5 @@ Diante deste cenário, o objetivo deste trabalho é apresentar o processo de des
 do ArenaHub, um sistema web projetado para otimizar e automatizar a gestão de horários,
 pagamentos e comunicação em quadras esportivas.
 
-Como visualizar?
+## Como visualizar?
 Basta abrir o arquivo main.pdf localizado na raiz do projeto para visualizar o conteúdo completo.
