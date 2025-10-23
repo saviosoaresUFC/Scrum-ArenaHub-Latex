@@ -7,3 +7,6 @@ métricas para a tomada de decisão estratégica, limitando o potencial de cresc
 Diante deste cenário, o objetivo deste trabalho é apresentar o processo de desenvolvimento
 do ArenaHub, um sistema web projetado para otimizar e automatizar a gestão de horários,
 pagamentos e comunicação em quadras esportivas.
+
+**Como visualizar?
+Basta abrir o arquivo main.pdf localizado na raiz do projeto para visualizar o conteúdo completo.
